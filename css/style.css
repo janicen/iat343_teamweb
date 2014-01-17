@@ -1,0 +1,149 @@
+/*
+
+	Team FM 5.0: Zachary, Yuki, Grace, Aries, Janice
+	IAT 343: D101
+	Team Website
+	CSS file: Main Style
+
+	1.Base 2.Grid 3.Layout 4.Links
+
+*/
+
+/* ================================================================ 
+	BASE START 
+================================================================  */
+
+html, body {
+	font-family: 'News Cycle', Arial, sans-serif;
+	font-size: 12px;
+	color: #000000;
+	background-image: url('../img/lightpaperfibers.png');
+}
+
+html, body, ul, ol, li, form,
+h1, h2, h3, h4, h5, h6, p {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/* ========== FONTS ========== */
+
+h1, h2, h3, h5, h5, h6, p {
+	font-size: 12px;
+	font-weight: 100;
+}
+
+	h1 {
+		font-size: 3.5em;
+	}
+
+	h3 {
+		font-size: 1.2em;
+	}
+
+/* ========== NAVBAR ========== */
+
+nav {
+	display: block;
+	padding: .8em 0;
+}
+
+ul li {
+	list-style: none;
+	float: left;
+	font-size: 1.5em;
+	padding: 0 2em 0 .5em;
+	border-left: 1px solid black;
+}
+
+
+
+/* ================================================================ 
+	BASE END
+================================================================  */
+
+
+
+/* ================================================================ 
+	GRID START
+================================================================  */
+
+/* ========== CONTAINER ========== */
+
+.container {
+	margin: 0em auto;
+	padding: 1.5em;
+	max-width: 960px;
+}
+
+/* ================================================================ 
+	GRID END
+================================================================  */
+
+
+
+/* ================================================================ 
+	LAYOUT START
+================================================================  */
+
+/* ========== CONTENT ========== */
+
+.content {
+	width: 100%;
+	text-align: center;
+}
+
+.wrapper {
+	overflow: hidden;
+	padding-bottom: .5em;
+	border-bottom: 1px solid black;
+}
+
+.logo {
+	float: left;
+}
+
+.title {
+	float: left;
+	margin-top: 2.8em;
+	padding-left: 1em;
+}
+
+.carousel {
+	padding: 8em;
+}
+
+/* ================================================================ 
+	LAYOUT END
+================================================================  */
+
+
+
+/* ================================================================ 
+	LINKS START 
+================================================================  */
+
+/* ========== LINKS ========== */
+
+a {
+	color: #9E9E9E;
+	text-decoration: none;
+
+	/* ========== FADE TRANSITION ========== */
+	-webkit-transition:color .3s ease-out, background .5s ease-in;
+	-moz-transition:color 	.3s ease-out, background .5s ease-in;
+	-o-transition:color 	.3s ease-out, background .5s ease-in;
+  	-ms-transition:color 	.3s ease-out, background .5s ease-in;
+  		transition:color 	.3s ease-out, background .5s ease-in;
+}
+
+	a:hover {
+		color: #000000;
+	}
+
+	.onpage {
+		color: #000000;
+	}
+
+/* ==================================================
