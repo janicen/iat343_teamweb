@@ -14,7 +14,7 @@
 ================================================================  */
 
 html, body {
-	font-family: 'News Cycle', Arial, sans-serif;
+	font-family: 'Raleway', Arial, sans-serif;
 	font-size: 12px;
 	color: #000000;
 	background-image: url('../img/lightpaperfibers.png');
@@ -27,37 +27,65 @@ h1, h2, h3, h4, h5, h6, p {
 	padding: 0;
 }
 
+/* ========== IMAGES ========== */
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+	table img {
+		max-width: 80px
+	}
+
 /* ========== FONTS ========== */
 
 h1, h2, h3, h5, h5, h6, p {
 	font-size: 12px;
-	font-weight: 100;
+	font-weight: 300;
 }
 
 	h1 {
 		font-size: 3.5em;
+		font-weight: 500;
+	}
+
+	h2 {
+		font-size: 1.95em;
 	}
 
 	h3 {
-		font-size: 1.2em;
+		font-size: 1.3em;
+		padding-top: .2em;
+	}
+
+	h4 {
+		font-size: 1.35em;
+		font-weight: 300;
+	}
+
+	p {
+		font-size: 1.35em;
+		line-height: 1.5em;
 	}
 
 /* ========== NAVBAR ========== */
 
 nav {
-	display: block;
 	padding: .8em 0;
 }
 
-ul li {
-	list-style: none;
-	float: left;
-	font-size: 1.5em;
-	padding: 0 2em 0 .5em;
-	border-left: 1px solid black;
-}
+	li {
+		list-style: none;
+	}
 
-
+	nav ul li {
+		float: left;
+		font-size: 1.5em;
+		font-weight: 300;
+		padding: .5em 2em 0 .5em;
+		border-left: 1px solid #E3E3E3;
+	}
 
 /* ================================================================ 
 	BASE END
@@ -73,8 +101,18 @@ ul li {
 
 .container {
 	margin: 0em auto;
-	padding: 1.5em;
-	max-width: 960px;
+	padding: 3em;
+	max-width: 1000px;
+}
+
+/* ========== COLUMNS ========== */
+
+.column1, .column2, .column3 {
+	width: 30%;
+	float: left;
+	text-align: left;
+	margin: 0 1.3em;
+	overflow: hidden;
 }
 
 /* ================================================================ 
@@ -91,14 +129,56 @@ ul li {
 
 .content {
 	width: 100%;
+	max-width: 1000px;
 	text-align: center;
+	margin-top: 10em;
+	overflow: hidden;
 }
+
+	.content p {
+		text-align: left;
+		padding-bottom: 2em;
+	}
+
+/* ========== TABLE ========== */
+
+table {
+	border: none;
+	text-align: left;
+}
+
+	table td {
+		padding: 0 3em 3em 0;
+	}
+
+/* ========== FLEXSLIDER ========== */
+
+.flexslider {
+	width: 100%;
+}
+
+/* ========== WRAPPER ========== */
 
 .wrapper {
 	overflow: hidden;
 	padding-bottom: .5em;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #E3E3E3;
 }
+
+	.titlewrapper {
+		width: 40%;
+		margin-bottom: 2em;
+		padding-bottom: .5em;
+		text-align: left;
+		border-bottom: 1px solid #E3E3E3;
+	}
+
+	/*.processwrapper {
+		overflow: hidden;
+		margin-top: 5em;
+	}*/
+
+/* ========== HEADER ========== */
 
 .logo {
 	float: left;
@@ -106,12 +186,20 @@ ul li {
 
 .title {
 	float: left;
-	margin-top: 2.8em;
+	margin-top: 1.8em;
 	padding-left: 1em;
 }
 
-.carousel {
-	padding: 8em;
+/* ========== FOOTER ========== */
+
+footer {
+	width: 100%;
+	float: right;
+	text-align: right;
+	margin-top: 8em;
+	padding: 1em 0;
+	border-top: 1px solid #E3E3E3;
+	color: #9E9E9E;
 }
 
 /* ================================================================ 
@@ -146,4 +234,16 @@ a {
 		color: #000000;
 	}
 
-/* ==================================================
+/* ========== OPACITY IMAGES ========== */
+
+a.opacity {
+    opacity: 0.5;
+}
+
+	a.opacity:hover {
+		opacity: 1;
+	}
+
+/* ================================================================ 
+	LINKS END 
+================================================================  

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!-- 
-	Team FM 5.0: Zachary, Yuki, Grace, Aries, Janice
+	Team FM 5.0: Aries, Yuki, Janice, Grace, Zach
 	IAT 343: D101
 	Team Website
 	HTML file: Home Page
@@ -23,7 +23,30 @@
 	<link rel="stylesheet" href="./css/style.css" type="text/css">
 
 	<!-- FONT -->
-	<link href='http://fonts.googleapis.com/css?family=News+Cycle' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,500,200,100,300,600,700,800,900' rel='stylesheet' type='text/css'>
+	
+	<!-- FlexSlider stylesheets and javascript files -->
+	<link rel="stylesheet" href="./css/flexslider.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="./js/jquery.flexslider.js"></script>
+
+	<!-- FlexSlider javascript (initializes after page content loads) -->
+	<script src="./js/flexslider-load.js"></script>
+
+	<!-- Slider menu javascript and CSS files-->
+	<script src="./js/jquery.mmenu.js"></script>
+	<script src="./js/jquery.mmenu.min.js"></script>
+	<link rel="stylesheet" href="./css/mmenu.css" type="text/css">
+
+	<!-- Initialize Slider Menu-->
+	<script type="text/javascript">
+		$(function() {
+			$('nav#menu').mmenu();
+			configuration: {
+				hardwareAcceleration: false
+			}
+		});
+	</script>
 
 </head>
 
@@ -57,8 +80,8 @@
 				<ul>
 					<li><a class="onpage" href="index.html">home</a></li>
 					<li><a href="inspiration.html">inspiration</a></li>
-					<li><a href="#">process</a></li>
-					<li><a href="#">people</a></li>
+					<li><a href="process.html">process</a></li>
+					<li><a href="people.html">people</a></li>
 				</ul>
 			</nav>
 			<!-- Navbar End -->
@@ -69,14 +92,35 @@
 		<!-- Content Start -->
 		<div class="content">
 
-			<!-- Image Carousel Start --> 
-			<div class="carousel">
-				<img src="http://placehold.it/800x400" width="800" height="400" alt="carousel"/>
+			<!-- FlexSlider Start -->
+			<div class="flexslider">
+				<ul class="slides">
+					<li>
+						<img src="http://placekitten.com/1000/500" width="1000" height="500" alt="slide1"/>
+					</li>
+					<li>
+						<img src="http://placekitten.com/1000/500" width="1000" height="500" alt="slide1"/>
+					</li>
+					<li>
+						<img src="http://placekitten.com/1000/500" width="1000" height="500" alt="slide1"/>
+					</li>
+					<li>
+						<img src="http://placekitten.com/1000/500" width="1000" height="500" alt="slide1"/>
+					</li>
+				</ul>
 			</div>
+			<!-- FlexSlider End -->
+
 			<!-- Image Carousel End -->
 
 		</div>
 		<!-- Content End -->
+
+		<!-- Footer Start -->
+		<footer>
+			<p>TEAM FM5.0 &copy; 2014</p>
+		</footer>
+		<!-- Footer End -->
 
 	</div>
 

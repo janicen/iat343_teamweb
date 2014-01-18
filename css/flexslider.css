@@ -1,0 +1,389 @@
+/*
+ * jQuery FlexSlider v2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+ 
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+
+/* FlexSlider Necessary Styles
+*********************************/ 
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden; position: relative;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides > li:first-child {display: list-item;}
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+html[xmlns] .slides {display: block;} 
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+/*.no-js .slides > li:first-child {display: block;}
+
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider {margin: 0 0 60px; background: #fff; border: 0; position: relative; -webkit-border-radius: 0px; -moz-border-radius: 0px; -o-border-radius: 0px; border-radius: 0px; box-shadow: 0px 2px 20px 2px rgba(0,0,0,0.5); -webkit-box-shadow: 0px 2px 20px 2px rgba(0,0,0,0.5); -moz-box-shadow: 0px 2px 20px 2px rgba(0,0,0,0.5); -o-box-shadow: 0px 2px 20px 2px rgba(0,0,0,0.5); zoom: 1;}
+.flex-viewport {max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; transition: all 1s ease;}
+.loading .flex-viewport {max-height: 300px;}
+.flexslider .slides {zoom: 1;}
+
+.carousel li {margin-right: 5px}
+
+
+/* Direction Nav */
+.flex-direction-nav {*height: 0;}
+.flex-direction-nav a {width: 30px; height: 30px; margin: 0px 0 0; display: block; background: url('../img/bg_direction_nav.png') no-repeat 0 0; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .5s ease;}
+.flex-direction-nav .flex-next {background-position: 100% 0; right: 0px; }
+.flex-direction-nav .flex-prev {left: 0px;}
+.flexslider:hover .flex-next {opacity: .9; right: 5px;}
+.flexslider:hover .flex-prev {opacity: .9; left: 5px;}
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover {opacity: 1;}
+.flex-direction-nav .flex-disabled {opacity: .3!important; filter:alpha(opacity=30); cursor: default;}
+
+/* Slider Caption */
+p.flex-caption, h2.flex-caption, a.flex-caption {
+position:absolute;
+background: none; /* whatever you want */    
+z-index:1;
+padding:1px;
+}
+
+h2.flex-caption {
+	font-size: 2.5em;
+	letter-spacing: 0em;
+	text-shadow: 0px 1px 5px #000000;
+}
+
+p.flex-caption {
+	font-size: 1em;
+	letter-spacing: .1em;
+}
+
+a.flex-caption {
+	background: #fff;
+	color: #000;
+	font-family: 'Oswald', Tahoma, Verdana, Arial, sans-serif;
+	font-size: 1.1em;
+	letter-spacing: .1em;
+	padding: .5em;
+	text-transform: uppercase;
+
+		/*--------------FADE TRANSITION--------------*/
+	-o-transition:color .3s ease-out, background .5s ease-in;
+  	-ms-transition:color .3s ease-out, background .5s ease-in;
+  	-moz-transition:color .3s ease-out, background .5s ease-in;
+  	-webkit-transition:color .3s ease-out, background .5s ease-in;
+  	transition:color .3s ease-out, background .5s ease-in;
+}
+
+
+
+/* Control Nav */
+.flex-control-nav {width: 100%; position: absolute; bottom: -30px; text-align: center;}
+.flex-control-nav li {margin: 0 6px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-paging li a {width: 11px; height: 11px; display: block; background: #fff; background: rgba(200,200,200,0.5); cursor: pointer; text-indent: -9999px; -webkit-border-radius: 20px; -moz-border-radius: 20px; -o-border-radius: 20px; border-radius: 20px; box-shadow: inset 0 0 3px rgba(0,0,0,0.3);}
+.flex-control-paging li a:hover { background: #333; background: rgba(0,0,0,0.7); }
+.flex-control-paging li a.flex-active { background: #000; background: rgba(255,255,255,1); cursor: default; }
+
+.flex-control-thumbs {margin: 5px 0 0; position: static; overflow: hidden;}
+.flex-control-thumbs li {width: 25%; float: left; margin: 0;}
+.flex-control-thumbs img {width: 100%; display: block; opacity: .7; cursor: pointer;}
+.flex-control-thumbs img:hover {opacity: 1;}
+.flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
+
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev {opacity: 1; left: 0;}
+  .flex-direction-nav .flex-next {opacity: 1; right: 0;}
+}
+
+
+/* Buttons */
+/* Index Page */
+@media only screen and (min-width: 791px) {
+	a#store-link {
+		z-index: 100;
+		position: absolute;
+		width: 8%;
+		height: auto;
+		text-align: center;
+		margin-top: -14.5%;
+		margin-left: 45%;
+	}
+
+	a#about-link {
+		z-index: 100;
+		position: absolute;
+		width: 8%;
+		height: auto;
+		text-align: center;
+		margin-top: -14.5%;
+		margin-left: 46%;
+	}
+
+	a#blog-link {
+		z-index: 100;
+		position: absolute;
+		width: 9%;
+		height: auto;
+		text-align: center;
+		margin-top: -21%;
+		margin-left: 28.5%;
+	}
+
+}
+
+@media only screen and (min-width: 641px) and (max-width: 790px) {
+	a#store-link {
+		z-index: 100;
+		position: absolute;
+		width: 10%;
+		height: auto;
+		text-align: center;
+		margin-top: -14.5%;
+		margin-left: 43%;
+	}
+
+	a#about-link {
+		z-index: 100;
+		position: absolute;
+		width: 10%;
+		height: auto;
+		text-align: center;
+		margin-top: -14.5%;
+		margin-left: 46%;
+	}
+
+	a#blog-link {
+		z-index: 100;
+		position: absolute;
+		width: 11%;
+		height: auto;
+		text-align: center;
+		margin-top: -21%;
+		margin-left: 26%;
+	}
+}
+
+@media only screen and (min-width: 400px) and (max-width: 640px) {
+	a#mobile-store-link {
+		z-index: 100;
+		position: absolute;
+		font-size: 1em;
+		width: 20%;
+		height: auto;
+		text-align: center;
+		margin-top: -29%;
+		margin-left: 42%;
+	}
+
+	a#mobile-about-link {
+		z-index: 100;
+		position: absolute;
+		font-size: 1em;
+		width: 20%;
+		height: auto;
+		text-align: center;
+		margin-top: -18%;
+		margin-left: 30%;
+	}
+
+	a#mobile-blog-link {
+		z-index: 100;
+		position: absolute;
+		font-size: 1em;
+		width: 21%;
+		height: auto;
+		text-align: center;
+		margin-top: -37%;
+		margin-left: 30%;
+	}
+}
+
+@media only screen and (max-width: 399px) {
+	a#mobile-store-link {
+		z-index: 100;
+		position: absolute;
+		width: 22%;
+		height: auto;
+		text-align: center;
+		margin-top: -29%;
+		margin-left: 40%;
+	}
+
+	a#mobile-about-link {
+		z-index: 100;
+		position: absolute;
+		width: 22%;
+		height: auto;
+		text-align: center;
+		text-align: center;
+		margin-top: -18%;
+		margin-left: 30%;
+	}
+
+	a#mobile-blog-link {
+		z-index: 100;
+		position: absolute;
+		width: 22%;
+		height: auto;
+		text-align: center;
+		text-align: center;
+		margin-top: -37%;
+		margin-left: 28%;
+	}
+}
+
+
+/* Store Page */
+@media only screen and (min-width: 791px) {
+	a#settler-link {
+		z-index: 100;
+		position: absolute;
+		width: 14%;
+		height: auto;
+		text-align: center;
+		margin-top: -10.5%;
+		margin-left: 39.5%;
+	}
+
+	a#chalet-link {
+		z-index: 100;
+		position: absolute;
+		width: 14%;
+		height: auto;
+		text-align: center;
+		margin-top: -6.5%;
+		margin-left: 55%;
+	}
+
+	a#nautical-link {
+		z-index: 100;
+		position: absolute;
+		width: 14%;
+		height: auto;
+		text-align: center;
+		margin-top: -13%;
+		margin-left: 18.2%;
+	}
+}
+
+
+@media only screen and (min-width: 641px) and (max-width: 790px) {
+	a#settler-link {
+		z-index: 100;
+		position: absolute;
+		width: 17%;
+		height: auto;
+		text-align: center;
+		margin-top: -10.5%;
+		margin-left: 36%;
+	}
+
+	a#chalet-link {
+		z-index: 100;
+		position: absolute;
+		width: 17%;
+		height: auto;
+		text-align: center;
+		margin-top: -6.5%;
+		margin-left: 55%;
+	}
+
+	a#nautical-link {
+		z-index: 100;
+		position: absolute;
+		width: 18%;
+		height: auto;
+		text-align: center;
+		margin-top: -13%;
+		margin-left: 18.2%;
+	}
+}
+
+@media only screen and (min-width: 400px) and (max-width: 640px) {
+	a#mobile-settler-link {
+		z-index: 100;
+		position: absolute;
+		font-size: 1em;
+		width: 32%;
+		height: auto;
+		text-align: center;
+		margin-top: -22%;
+		margin-left: 32%;
+	}
+
+	a#mobile-chalet-link {
+		z-index: 100;
+		position: absolute;
+		font-size: 1em;
+		width: 32%;
+		height: auto;
+		text-align: center;
+		margin-top: -21%;
+		margin-left: 21%;
+	}
+
+	a#mobile-nautical-link {
+		z-index: 100;
+		position: absolute;
+		font-size: 1em;
+		width: 32%;
+		height: auto;
+		text-align: center;
+		margin-top: -15%;
+		margin-left: 21%;
+	}
+}
+
+@media only screen and (max-width: 399px) {
+	a#mobile-settler-link {
+		z-index: 100;
+		position: absolute;
+		font-size: .75em;
+		width: 40%;
+		height: auto;
+		text-align: center;
+		margin-top: -22%;
+		margin-left: 25%;
+	}
+
+	a#mobile-chalet-link {
+		z-index: 100;
+		position: absolute;
+		font-size: .75em;
+		width: 40%;
+		height: auto;
+		text-align: center;
+		margin-top: -21%;
+		margin-left: 21%;
+	}
+
+	a#mobile-nautical-link {
+		z-index: 100;
+		position: absolute;
+		font-size: .75em;
+		width: 40%;
+		height: auto;
+		text-align: center;
+		margin-top: -15%;
+		margin-left: 21%;
+	}
+}
