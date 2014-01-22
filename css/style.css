@@ -34,6 +34,10 @@ img {
 	height: auto;
 }
 
+	.contentimages img {
+		margin-bottom: 2em;
+	}
+
 	table img {
 		max-width: 80px
 	}
@@ -173,10 +177,10 @@ table {
 		border-bottom: 1px solid #E3E3E3;
 	}
 
-	/*.processwrapper {
+	.processwrapper {
 		overflow: hidden;
 		margin-top: 5em;
-	}*/
+	}
 
 /* ========== HEADER ========== */
 
@@ -246,4 +250,30 @@ a.opacity {
 
 /* ================================================================ 
 	LINKS END 
-================================================================  
+================================================================  */
+
+
+
+/* =========================================================
+ * Video Responsive CSS Styles
+ * Based on code found here: http://amobil.se/2011/11/responsive-embeds/
+ * ========================================================= */
+
+.video {
+	position: relative;
+	margin-bottom: 2em;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+	.video iframe,
+	.video object,
+	.video embed {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    border: none;
+	}
