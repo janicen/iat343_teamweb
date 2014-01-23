@@ -169,6 +169,12 @@ table {
 	border-bottom: 1px solid #E3E3E3;
 }
 
+	.headerwrapper {
+		margin-bottom: 2em;
+		padding-bottom: .5em;
+		border-bottom: 1px solid #E3E3E3;
+	}
+
 	.titlewrapper {
 		width: 40%;
 		margin-bottom: 2em;
