@@ -120,10 +120,11 @@ nav {
 }
 
 .column4 {
-	width: 100%;
+	width: 96.2%;
 	float: left;
 	text-align: left;
 	margin: 0 1.3em;
+	/*padding-right: 2em;*/
 	overflow: hidden;
 }
 
